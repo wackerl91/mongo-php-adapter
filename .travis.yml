@@ -24,12 +24,13 @@ addons:
 before_script:
   - if [ $TRAVIS_PHP_VERSION != 'hhvm' ]; then pecl install -f mongodb-${DRIVER_VERSION}; fi
   - if [ $TRAVIS_PHP_VERSION = 'hhvm' ]; then echo "extension=mongodb.so" >> /etc/hhvm/php.ini; fi
-  - composer install
-  - if [ "x$LEGACY_DRIVER_VERSION" != "x" ]; then yes '' | pecl -q install -f mongo-${LEGACY_DRIVER_VERSION}; fi
+#  - composer install
+#  - if [ "x$LEGACY_DRIVER_VERSION" != "x" ]; then yes '' | pecl -q install -f mongo-${LEGACY_DRIVER_VERSION}; fi
 
 script:
-    - ./vendor/bin/phpunit --coverage-clover=coverage.clover
+    - php test.php
+    #- ./vendor/bin/phpunit --coverage-clover=coverage.clover
 
 after_script:
-    - wget https://scrutinizer-ci.com/ocular.phar
-    - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+#    - wget https://scrutinizer-ci.com/ocular.phar
+#    - php ocular.phar code-coverage:upload --format=php-clover coverage.clover

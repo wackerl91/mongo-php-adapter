@@ -20,6 +20,7 @@ addons:
     - mongodb-3.2-precise
     packages:
     - mongodb-org-server
+    - hhvm-dev
 
 before_script:
   - if [ $TRAVIS_PHP_VERSION != 'hhvm' ]; then pecl install -f mongodb-${PHP_DRIVER_VERSION}; fi

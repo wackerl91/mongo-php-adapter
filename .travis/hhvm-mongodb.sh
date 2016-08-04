@@ -12,4 +12,4 @@ cmake .
 make configlib
 make install
 
-echo "hhvm.dynamic_extensions[mongodb]=mongodb.so" >> /etc/hhvm/php.ini
+echo "hhvm.dynamic_extensions[mongodb]=`pwd`/mongodb.so" >> /etc/hhvm/php.ini
